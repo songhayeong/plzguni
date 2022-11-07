@@ -4,6 +4,12 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 from api.users.forms import UserAdminChangeForm, UserAdminCreationForm
+from .models import *
+
+
+admin.site.register(File)
+admin.site.register(Task)
+
 
 User = get_user_model()
 
