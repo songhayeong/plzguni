@@ -16,7 +16,7 @@ backcall==0.2.0
 backend==0.2.4.1
 beautifulsoup4==4.11.1
 binaryornot==0.4.4
-black==22.6.0c
+black==22.6.0
 bs4==0.0.1
 cachetools==5.2.0
 case-conversion==2.1.0
