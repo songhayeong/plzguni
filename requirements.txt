@@ -2,8 +2,8 @@ aenum==3.1.11
 alabaster==0.7.12
 appdirs==1.4.4
 APScheduler==3.9.1
-argon2-cffi==21.3.0
-argon2-cffi-bindings==21.2.0git
+argon2-cffi==21.2.0
+argon2-cffi-bindings==21.2.0
 arrow==1.2.2
 asgiref==3.5.2
 astroid==2.11.7
