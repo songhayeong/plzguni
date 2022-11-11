@@ -9,7 +9,14 @@ from datetime import timedelta
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # api/
 APPS_DIR = ROOT_DIR / "api"
-env = environ.Env()
+env=environ.Env()
+
+
+#SECRET_KEY = Env("DJANGO_SECRET_KEY")
+
+#SECRET_KEY = env("DJANGO_SECRET_KEY")
+
+# print(SECRET_KEY) #--> 시크릿 키 들고오는 곳에서 오류 발생 
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
 if READ_DOT_ENV_FILE:
@@ -88,6 +95,7 @@ LOCAL_APPS = [
     "rest_framework.authtoken",
     "djoser",
     "corsheaders",
+    "sslserver",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -137,6 +145,7 @@ AUTH_PASSWORD_VALIDATORS = [
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -145,6 +154,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    #"gunicorn",
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -323,7 +333,7 @@ SIMPLE_JWT = {
     'JWT_ALLOW_REFRESH':True,
 }
 
-DOMAIN = '192.168.123.3:64113'
+DOMAIN = '192.168.123.11:64113' # neuraldrop 통신할때 프론트리다이렉트 주소
 
 DJOSER = {
     "USER_ID_FIELD": "username",
